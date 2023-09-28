@@ -1,5 +1,5 @@
-import Contents from "@/components/ui/Contents";
-import SideBar from "@/components/ui/Sidebar";
+import Contents from "@/components/Ui/Contents";
+import SideBar from "@/components/Ui/Sidebar";
 import { Layout } from "antd";
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
