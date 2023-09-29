@@ -5,6 +5,9 @@ import Image from "next/image";
 import Form from "@/components/Forms/Form";
 import FormInput from "@/components/Forms/FormInput";
 import { SubmitHandler } from "react-hook-form";
+import { useRouter } from "next/navigation";
+import { useUserLoginMutation } from "@/redux/api/authApi";
+import { storeUserInfo } from "@/services/auth.service";
 
 type FormValues = {
   id: string;
@@ -12,11 +15,22 @@ type FormValues = {
 };
 
 const LoginPage = () => {
-  const onSubmit: SubmitHandler<FormValues> = (data) => {
+  const [userLogin] = useUserLoginMutation();
+  const router = useRouter();
+
+  const onSubmit: SubmitHandler<FormValues> = async (data: any) => {
     try {
-      console.log(data);
-    } catch (err) {}
+      const res = await userLogin({ ...data }).unwrap();
+      console.log(res);
+      if (res?.accessToken) {
+        router.push("/");
+      }
+      storeUserInfo({ accessToken: res?.accessToken });
+    } catch (err: any) {
+      console.error(err.message);
+    }
   };
+
   return (
     <Row
       justify="center"
@@ -50,7 +64,7 @@ const LoginPage = () => {
                 label="User Password"
               />
             </div>
-            <button className="bg-indigo-700 px-4 py-2 rounded font-bold text-white"  type="submit">
+            <button className="bg-indigo-700 px-4 py-2 rounded font-bold text-white" type="submit">
               Login
             </button>
           </Form>
