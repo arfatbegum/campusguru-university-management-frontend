@@ -2,18 +2,19 @@
 
 import { useState } from "react";
 import { Layout, Menu } from "antd";
-import { USER_ROLE } from "@/constants/role";
 import { sidebarItems } from "@/constants/sidebarItems";
+import { getUserInfo } from "@/services/auth.service";
 
 const { Sider } = Layout;
 
 const SideBar = () => {
     const [collapsed, setCollapsed] = useState(false);
 
-    const role = USER_ROLE.ADMIN;
+    const { role } = getUserInfo() as any;
 
     return (
         <Sider
+            theme="light"
             collapsible
             collapsed={collapsed}
             onCollapse={(value) => setCollapsed(value)}
@@ -27,20 +28,11 @@ const SideBar = () => {
                 bottom: 0,
             }}
         >
-            <div
-                style={{
-                    color: "white",
-                    fontSize: "1.2rem",
-                    textAlign: "center",
-                    fontWeight: "bold",
-                    marginTop: "1rem",
-                    marginBottom: "1rem",
-                }}
+            <div className="text-indigo-700 font-bold text-lg text-center my-3 uppercase"
             >
                 CampusGuru University
             </div>
             <Menu
-                theme="dark"
                 defaultSelectedKeys={["1"]}
                 mode="inline"
                 items={sidebarItems(role)}

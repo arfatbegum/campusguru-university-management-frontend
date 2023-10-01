@@ -18,14 +18,14 @@ export const sidebarItems = (role: string) => {
     {
       label: "Profile",
       key: "profile",
-      icon: <ProfileOutlined />,
+      icon: <ProfileOutlined style={{ fontSize: '18px', color: '#4338ca' }} />,
       children: [
         {
           label: <Link href={`/${role}/profile`}>Account Profile</Link>,
           key: `/${role}/profile`,
         },
         {
-          label: <Link href={`/${role}/change-password`}>Change Password</Link>,
+          label: <Link href={`/${role}/change_password`}>Change Password</Link>,
           key: `/${role}/change-password`,
         },
       ],
@@ -34,13 +34,13 @@ export const sidebarItems = (role: string) => {
 
   const commonAdminSidebarItems: MenuProps["items"] = [
     {
-      label: <Link href={`/${role}/manage-student`}>Students</Link>,
-      icon: <UsergroupAddOutlined />,
+      label: <Link href={`/${role}/student`}>Students</Link>,
+      icon: <UsergroupAddOutlined style={{ fontSize: '18px', color: '#4338ca' }} />,
       key: `/${role}/manage-student`,
     },
     {
-      label: <Link href={`/${role}/manage-faculty`}>Faculty</Link>,
-      icon: <UsergroupAddOutlined />,
+      label: <Link href={`/${role}/faculty`}>Faculty</Link>,
+      icon: <UsergroupAddOutlined style={{ fontSize: '18px', color: '#4338ca' }} />,
       key: `/${role}/manage-faculty`,
     },
   ];
@@ -51,7 +51,7 @@ export const sidebarItems = (role: string) => {
     {
       label: "Manage Academic",
       key: "manage-academic",
-      icon: <TableOutlined />,
+      icon: <TableOutlined style={{ fontSize: '18px', color: '#4338ca' }} />,
       children: [
         {
           label: <Link href={`/${role}/academic/faculty`}>Faculties</Link>,
@@ -70,7 +70,7 @@ export const sidebarItems = (role: string) => {
     {
       label: "Management",
       key: "management",
-      icon: <AppstoreOutlined />,
+      icon: <AppstoreOutlined style={{ fontSize: '18px', color: '#4338ca' }} />,
       children: [
         {
           label: <Link href={`/${role}/department`}>Department</Link>,
@@ -90,31 +90,31 @@ export const sidebarItems = (role: string) => {
         },
         {
           label: (
-            <Link href={`/${role}/semester-registration`}>
+            <Link href={`/${role}/semester_registration`}>
               Semester registration
             </Link>
           ),
-          key: `/${role}/semester-registration`,
+          key: `/${role}/semester_registration`,
         },
         {
-          label: <Link href={`/${role}/offered-course`}>Offered courses</Link>,
+          label: <Link href={`/${role}/offered_course`}>Offered courses</Link>,
           key: `/${role}/offered-course`,
         },
         {
           label: (
-            <Link href={`/${role}/offered-course-section`}>
+            <Link href={`/${role}/offered_course_section`}>
               Course sections
             </Link>
           ),
-          key: `/${role}/offered-course-section`,
+          key: `/${role}/offered_course_section`,
         },
         {
           label: (
-            <Link href={`/${role}/offered-course-schedule`}>
+            <Link href={`/${role}/offered_course_schedule`}>
               Course schedules
             </Link>
           ),
-          key: `/${role}/offered-course-schedule`,
+          key: `/${role}/offered_course_schedule`,
         },
       ],
     },
@@ -124,30 +124,19 @@ export const sidebarItems = (role: string) => {
     ...defaultSidebarItems,
     ...commonAdminSidebarItems,
     {
-      label: <Link href={`/${role}/admin`}>Manage Admin</Link>,
-      icon: <TableOutlined />,
+      label: <Link href={`/${role}/admin`}>Admin</Link>,
+      icon: <TableOutlined style={{ fontSize: '18px', color: '#4338ca' }} />,
       key: `/${role}/admin`,
     },
     {
-      label: <Link href={`/${role}/user`}>Manage User</Link>,
-      icon: <TableOutlined />,
+      label: <Link href={`/${role}/user`}>User</Link>,
+      icon: <TableOutlined style={{ fontSize: '18px', color: '#4338ca' }} />,
       key: `/${role}/user`,
-    },
-    {
-      label: "Manage permission",
-      key: "manage-permission",
-      icon: <AppstoreOutlined />,
-      children: [
-        {
-          label: <Link href={`/${role}/permission`}>View permissions</Link>,
-          key: `/${role}/permission`,
-        },
-      ],
     },
     {
       label: "Management",
       key: "management",
-      icon: <AppstoreOutlined />,
+      icon: <AppstoreOutlined style={{ fontSize: '18px', color: '#4338ca' }} />,
       children: [
         {
           label: <Link href={`/${role}/department`}>Department</Link>,
@@ -161,7 +150,7 @@ export const sidebarItems = (role: string) => {
     ...defaultSidebarItems,
     {
       label: <Link href={`/${role}/courses`}>Courses</Link>,
-      icon: <TableOutlined />,
+      icon: <TableOutlined style={{ fontSize: '18px', color: '#4338ca' }} />,
       key: `/${role}/courses`,
     },
   ];
@@ -170,27 +159,27 @@ export const sidebarItems = (role: string) => {
     ...defaultSidebarItems,
     {
       label: <Link href={`/${role}/courses`}>Courses</Link>,
-      icon: <TableOutlined />,
+      icon: <TableOutlined style={{ fontSize: '18px', color: '#4338ca' }} />,
       key: `/${role}/courses`,
     },
     {
       label: <Link href={`/${role}/courses/schedule`}>Course schedules</Link>,
-      icon: <ScheduleOutlined />,
+      icon: <ScheduleOutlined style={{ fontSize: '18px', color: '#4338ca' }} />,
       key: `/${role}/courses/schedule`,
     },
     {
       label: <Link href={`/${role}/registration`}>Registration</Link>,
-      icon: <ThunderboltOutlined />,
+      icon: <ThunderboltOutlined style={{ fontSize: '18px', color: '#4338ca' }} />,
       key: `/${role}/registration`,
     },
     {
       label: <Link href={`/${role}/payment`}>Payment</Link>,
-      icon: <CreditCardOutlined />,
+      icon: <CreditCardOutlined style={{ fontSize: '18px', color: '#4338ca' }} />,
       key: `/${role}/payment`,
     },
     {
-      label: <Link href={`/${role}/academic-report`}>Academic report</Link>,
-      icon: <FileTextOutlined />,
+      label: <Link href={`/${role}/academic_report`}>Academic report</Link>,
+      icon: <FileTextOutlined style={{ fontSize: '18px', color: '#4338ca' }} />,
       key: `/${role}/academic-report`,
     },
   ];
