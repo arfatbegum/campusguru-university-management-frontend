@@ -14,7 +14,7 @@ const UMBreadCrumb = ({
     {
       title: (
         <Link href="/">
-          <HomeOutlined style={{ fontSize: '18px', color: '#4338ca' , marginLeft:"16px"}}/>
+          <HomeOutlined style={{ fontSize: '18px', color: '#4338ca'}}/>
         </Link>
       ),
     },
