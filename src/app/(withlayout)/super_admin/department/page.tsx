@@ -1,9 +1,11 @@
+import ActionBar from "@/components/Ui/ActionBar";
 import UMBreadCrumb from "@/components/Ui/UMBreadCrumb";
+import Link from "next/link";
 
 const Department = () => {
     return (
         <div>
-               <UMBreadCrumb
+            <UMBreadCrumb
                 items={[
                     {
                         label: "Super Admin",
@@ -15,6 +17,11 @@ const Department = () => {
                     },
                 ]}
             />
+            <ActionBar title="Department List">
+                <Link href="/super_admin/department/create">
+                    <button className="bg-indigo-700 px-4 py-2 text-white rounded font-semibold float-right">Create Department</button>
+                </Link>
+            </ActionBar>
         </div>
     );
 };
