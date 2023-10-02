@@ -19,7 +19,7 @@ const Student = () => {
             />
             <ActionBar title="Student List">
                 <Link href="/super_admin/student/create">
-                    <button className="bg-indigo-700 px-4 py-2 text-white rounded font-semibold float-right">Create Students</button>
+                    <button className="bg-indigo-700 px-4 py-2 text-white rounded font-semibold float-right">Create Student</button>
                 </Link>
             </ActionBar>
         </div>

@@ -8,6 +8,8 @@ import FormTextArea from "@/components/Forms/FormTextArea";
 import UMBreadCrumb from "@/components/Ui/UMBreadCrumb";
 import UploadImage from "@/components/Ui/UploadImage";
 import { bloodGroupOptions, departmentOptions, genderOptions } from "@/constants/global";
+import { adminSchema } from "@/schemas/admin";
+import { yupResolver } from "@hookform/resolvers/yup";
 
 import { Col, Row } from "antd";
 
@@ -36,7 +38,7 @@ const CreateAdminPage = () => {
             />
             <h1 className="py-5 text-lg font-bold">Create Admin</h1>
             <div>
-                <Form submitHandler={onSubmit}>
+                <Form submitHandler={onSubmit} resolver={yupResolver(adminSchema)}>
                     <div className="bg-white border border-gray-200 p-5 rounded mb-4 shadow-sm"
                     >
                         <p className="font-semibold text-lg mb-3">
