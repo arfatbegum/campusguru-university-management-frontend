@@ -1,3 +1,4 @@
+import ActionBar from "@/components/Ui/ActionBar";
 import UMBreadCrumb from "@/components/Ui/UMBreadCrumb";
 
 const User = () => {
@@ -15,6 +16,7 @@ const User = () => {
                     },
                 ]}
             />
+              <ActionBar title="User List"/>
         </div>
     );
 };
