@@ -1,4 +1,6 @@
+import ActionBar from "@/components/Ui/ActionBar";
 import UMBreadCrumb from "@/components/Ui/UMBreadCrumb";
+import Link from "next/link";
 
 const Faculty = () => {
     return (
@@ -15,6 +17,11 @@ const Faculty = () => {
                     },
                 ]}
             />
+               <ActionBar title="Faculty List">
+                <Link href="/super_admin/faculty/create">
+                    <button className="bg-indigo-700 px-4 py-2 text-white rounded font-semibold float-right">Create Faculty</button>
+                </Link>
+            </ActionBar>
         </div>
     );
 };
