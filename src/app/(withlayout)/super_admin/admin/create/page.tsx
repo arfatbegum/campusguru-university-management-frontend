@@ -9,7 +9,7 @@ import UMBreadCrumb from "@/components/Ui/UMBreadCrumb";
 import UploadImage from "@/components/Ui/UploadImage";
 import { bloodGroupOptions, departmentOptions, genderOptions } from "@/constants/global";
 
-import { Button, Col, Row } from "antd";
+import { Col, Row } from "antd";
 
 const CreateAdminPage = () => {
     const onSubmit = async (data: any) => {
@@ -25,11 +25,11 @@ const CreateAdminPage = () => {
             <UMBreadCrumb
                 items={[
                     {
-                        label: "super_admin",
+                        label: "Super Admin",
                         link: "/super_admin",
                     },
                     {
-                        label: "admin",
+                        label: "Admin",
                         link: "/super_admin/admin",
                     },
                 ]}
@@ -44,11 +44,8 @@ const CreateAdminPage = () => {
                         </p>
                         <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
                             <Col
-                                className="gutter-row"
+                                className="gutter-row mb-4"
                                 span={8}
-                                style={{
-                                    marginBottom: "10px",
-                                }}
                             >
                                 <FormInput
                                     type="text"
@@ -58,11 +55,8 @@ const CreateAdminPage = () => {
                                 />
                             </Col>
                             <Col
-                                className="gutter-row"
+                                className="gutter-row mb-4"
                                 span={8}
-                                style={{
-                                    marginBottom: "10px",
-                                }}
                             >
                                 <FormInput
                                     type="text"
@@ -72,11 +66,8 @@ const CreateAdminPage = () => {
                                 />
                             </Col>
                             <Col
-                                className="gutter-row"
+                                className="gutter-row mb-4"
                                 span={8}
-                                style={{
-                                    marginBottom: "10px",
-                                }}
                             >
                                 <FormInput
                                     type="text"
@@ -191,11 +182,9 @@ const CreateAdminPage = () => {
                                 />
                             </Col>
                             <Col
-                                className="gutter-row"
+                                className="gutter-row mb-4"
                                 span={8}
-                                style={{
-                                    marginBottom: "10px",
-                                }}
+
                             >
                                 <FormInput
                                     type="text"
