@@ -27,3 +27,7 @@ export interface IDepartment {
   updatedAt: string;
   __v: number;
 }
+
+export type IDProps = {
+  params: any;
+};

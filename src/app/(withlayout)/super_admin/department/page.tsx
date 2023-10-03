@@ -47,7 +47,7 @@ const Department = () => {
             render: function (data: any) {
                 return (
                     <>
-                        <Link href={`/super_admin/department/edit/${data?.id}`}>
+                        <Link href={`/super_admin/department/update/${data?.id}`}>
                             <button className="bg-indigo-700 text-white font-bold py-1 px-2 rounded mr-2">
                                 <EditOutlined />
                             </button>
