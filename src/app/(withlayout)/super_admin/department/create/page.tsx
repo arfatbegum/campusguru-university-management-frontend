@@ -31,7 +31,7 @@ const CreateDepartment = () => {
                     },
                     {
                         label: "Department",
-                        link: "/department",
+                        link: "/super_admin/department",
                     },
                 ]}
             />
