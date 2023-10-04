@@ -7,7 +7,7 @@ type ActionBarProps = {
     return (
       <div>
         <h1 className="py-5 text-lg font-bold">{title}</h1>
-        <div style={{ display: "flex" }}>{children}</div>
+        <div style={{ display: "flex", justifyItems:"center", alignItems:"center", marginBottom:"16px" }}>{children}</div>
       </div>
     );
   };
