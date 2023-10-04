@@ -1,7 +1,7 @@
 "use client";
 import ActionBar from "@/components/Ui/ActionBar";
 import UMBreadCrumb from "@/components/Ui/UMBreadCrumb";
-import { Button, Input } from "antd";
+import { Input } from "antd";
 import Link from "next/link";
 import {
     DeleteOutlined,
@@ -150,7 +150,7 @@ const AdminPage = () => {
                         <ReloadOutlined />
                     </button>
                 )}
-                <Link href="/super_admin/department/create">
+                <Link href="/super_admin/admin/create">
                     <button className="bg-indigo-700 px-4 py-2 ml-2 text-white rounded font-semibold float-right">Create</button>
                 </Link>
             </ActionBar>

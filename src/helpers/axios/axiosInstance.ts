@@ -36,7 +36,6 @@ instance.interceptors.response.use(function (response) {
         errorMessages:error?.response?.data?.message, 
     }
     return responseObject;
-    // return Promise.reject(error);
   });
 
 

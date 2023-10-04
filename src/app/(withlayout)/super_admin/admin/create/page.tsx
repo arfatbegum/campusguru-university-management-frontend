@@ -7,20 +7,45 @@ import FormSelectField from "@/components/Forms/FormSelectField";
 import FormTextArea from "@/components/Forms/FormTextArea";
 import UMBreadCrumb from "@/components/Ui/UMBreadCrumb";
 import UploadImage from "@/components/Ui/UploadImage";
-import { bloodGroupOptions, departmentOptions, genderOptions } from "@/constants/global";
+import { bloodGroupOptions, genderOptions } from "@/constants/global";
+import { useAddAdminWithFormDataMutation } from "@/redux/api/adminApi";
+import { useDepartmentsQuery } from "@/redux/api/departmentApi";
 import { adminSchema } from "@/schemas/admin";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { Col, Row, message } from "antd";
 
-import { Col, Row } from "antd";
-
-const CreateAdminPage = () => {
-    const onSubmit = async (data: any) => {
-        try {
-            console.log(data);
-        } catch (err: any) {
-            console.error(err.message);
-        }
+const CreateAdmin = () => {
+    const { data, isLoading } = useDepartmentsQuery({ limit: 100, page: 1 });
+    const [addAdminWithFormData] = useAddAdminWithFormDataMutation();
+    //@ts-ignore
+    const departments: IDepartment[] = data?.departments;
+  
+    const departmentOptions =
+      departments &&
+      departments?.map((department) => {
+        return {
+          label: department?.title,
+          value: department?.id,
+        };
+      });
+  
+    const onSubmit = async (values: any) => {
+      const obj = { ...values };
+      const file = obj["file"];
+      delete obj["file"];
+      const data = JSON.stringify(obj);
+      const formData = new FormData();
+      formData.append("file", file as Blob);
+      formData.append("data", data);
+        message.loading("Creating...");
+      try {
+        await addAdminWithFormData(formData);
+        message.success("Admin created successfully!");
+      } catch (err: any) {
+        message.error(err.message);
+      }
     };
+  
 
     return (
         <div>
@@ -117,11 +142,10 @@ const CreateAdminPage = () => {
                                 className="gutter-row mb-4"
                                 span={8}
                             >
-                                <UploadImage />
+                                  <UploadImage name="file" />
                             </Col>
                         </Row>
                     </div>
-
                     {/* basic info */}
                     <div className="bg-white border border-gray-200 p-5 rounded mb-4 shadow-sm">
                         <p className="font-semibold text-lg mb-3">
@@ -186,7 +210,6 @@ const CreateAdminPage = () => {
                             <Col
                                 className="gutter-row mb-4"
                                 span={8}
-
                             >
                                 <FormInput
                                     type="text"
@@ -199,7 +222,7 @@ const CreateAdminPage = () => {
                                 <FormTextArea
                                     name="admin.presentAddress"
                                     label="Present address"
-                                    rows={4}
+                                    rows={3}
                                 />
                             </Col>
 
@@ -207,16 +230,16 @@ const CreateAdminPage = () => {
                                 <FormTextArea
                                     name="admin.permanentAddress"
                                     label="Permanent address"
-                                    rows={4}
+                                    rows={3}
                                 />
                             </Col>
                         </Row>
                     </div>
-                    <button className="bg-indigo-700 px-4 py-2 text-white rounded font-semibold float-right">Create Admin</button>
+                    <button type="submit" className="bg-indigo-700 px-4 py-2 text-white rounded font-semibold float-right">Create Admin</button>
                 </Form>
             </div>
         </div>
     );
 };
 
-export default CreateAdminPage;
+export default CreateAdmin;
