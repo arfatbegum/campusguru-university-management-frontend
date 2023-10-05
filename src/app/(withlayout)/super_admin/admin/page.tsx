@@ -1,7 +1,7 @@
 "use client";
 import ActionBar from "@/components/Ui/ActionBar";
 import UMBreadCrumb from "@/components/Ui/UMBreadCrumb";
-import { Input } from "antd";
+import { Input, message } from "antd";
 import Link from "next/link";
 import {
     DeleteOutlined,
@@ -13,7 +13,7 @@ import {
 import { useState } from "react";
 import { useDebounced } from "@/redux/hooks";
 import UMTable from "@/components/Ui/UMTable";
-import { useAdminsQuery } from "@/redux/api/adminApi";
+import { useAdminsQuery, useDeleteAdminMutation } from "@/redux/api/adminApi";
 import { IDepartment } from "@/types";
 import dayjs from "dayjs";
 
@@ -25,6 +25,7 @@ const AdminPage = () => {
     const [sortBy, setSortBy] = useState<string>("");
     const [sortOrder, setSortOrder] = useState<string>("");
     const [searchTerm, setSearchTerm] = useState<string>("");
+    const [deleteAdmin] = useDeleteAdminMutation();
 
     query["limit"] = size;
     query["page"] = page;
@@ -42,6 +43,17 @@ const AdminPage = () => {
     const { data, isLoading } = useAdminsQuery({ ...query });
     const admins = data?.admins;
     const meta = data?.meta;
+
+    const deleteHandler = async (id: string) => {
+        message.loading("Deleting.....");
+        try {
+            await deleteAdmin(id);
+            message.success("Admin Deleted successfully");
+        } catch (err: any) {
+            console.error(err.message);
+        }
+    };
+
 
     const columns = [
         {
@@ -86,7 +98,6 @@ const AdminPage = () => {
         },
         {
             title: "Action",
-            dataIndex: "id",
             render: function (data: any) {
                 return (
                     <>
@@ -100,7 +111,7 @@ const AdminPage = () => {
                                 <EditOutlined />
                             </button>
                         </Link>
-                        <button className="bg-red-500 text-white font-bold py-1 px-2 rounded mr-2">
+                        <button onClick={() => deleteHandler(data?.id)} className="bg-red-500 text-white font-bold py-1 px-2 rounded mr-2">
                             <DeleteOutlined />
                         </button>
                     </>
