@@ -12,7 +12,7 @@ import { useState } from "react";
 import dayjs from "dayjs";
 import { message, Input } from "antd";
 import { useDebounced } from "@/redux/hooks";
-import { useAcademicFacultiesQuery, useDeleteAcademicFacultyMutation } from "@/redux/api/academic/facultyApi";
+import { useAcademicDepartmentsQuery, useDeleteAcademicDepartmentMutation } from "@/redux/api/academic/departmentApi";
 
 const AcademicFaculty = () => {
     const query: Record<string, any> = {};
@@ -22,7 +22,7 @@ const AcademicFaculty = () => {
     const [sortBy, setSortBy] = useState<string>("");
     const [sortOrder, setSortOrder] = useState<string>("");
     const [searchTerm, setSearchTerm] = useState<string>("");
-    const [deleteAcademicFaculty] = useDeleteAcademicFacultyMutation();
+    const [deleteAcademicDepartment] = useDeleteAcademicDepartmentMutation();
 
     query["limit"] = size;
     query["page"] = page;
@@ -38,16 +38,16 @@ const AcademicFaculty = () => {
         query["searchTerm"] = debouncedTerm;
     }
 
-    const { data, isLoading } = useAcademicFacultiesQuery({ ...query });
+    const { data, isLoading } = useAcademicDepartmentsQuery({ ...query });
 
-    const academicFaculties = data?.academicFaculties;
+    const academicDepartments = data?.academicDepartments;
     const meta = data?.meta;
 
     const deleteHandler = async (id: string) => {
         message.loading("Deleting.....");
         try {
-            await deleteAcademicFaculty(id);
-            message.success("Academic Faculty Deleted successfully");
+            await deleteAcademicDepartment(id);
+            message.success("Academic Department Deleted successfully");
         } catch (err: any) {
             message.error(err.message);
         }
@@ -57,6 +57,13 @@ const AcademicFaculty = () => {
         {
             title: "Title",
             dataIndex: "title",
+        },
+        {
+            title: "Faculty",
+            dataIndex: "academicFaculty",
+            render: function (data: any) {
+                return <>{data?.title}</>;
+            },
         },
         {
             title: "CreatedAt",
@@ -71,7 +78,7 @@ const AcademicFaculty = () => {
             render: function (data: any) {
                 return (
                     <>
-                        <Link href={`/admin/academic/faculty/update/${data?.id}`}>
+                        <Link href={`/admin/academic/department/update/${data?.id}`}>
                             <button className="bg-indigo-700 text-white font-bold py-1 px-2 rounded mr-2">
                                 <EditOutlined />
                             </button>
@@ -111,12 +118,12 @@ const AcademicFaculty = () => {
                         link: "/admin",
                     },
                     {
-                        label: "Academic Faculties",
-                        link: "/admin/academic/faculty",
+                        label: "Academic Departments",
+                        link: "/admin/academic/department",
                     },
                 ]}
             />
-            <ActionBar title="Academic Faculty List">
+            <ActionBar title="Academic Department List">
                 <Input
                     addonBefore={<SearchOutlined style={{ fontSize: '18px', color: "#4338ca" }} />}
                     placeholder="large size"
@@ -132,14 +139,14 @@ const AcademicFaculty = () => {
                         <ReloadOutlined />
                     </button>
                 )}
-                <Link href="/admin/academic/faculty/create">
+                <Link href="/admin/academic/department/create">
                     <button className="bg-indigo-700 px-4 py-2 ml-2 text-white rounded font-semibold float-right">Create</button>
                 </Link>
             </ActionBar>
             <UMTable
                 loading={isLoading}
                 columns={columns}
-                dataSource={academicFaculties}
+                dataSource={academicDepartments}
                 pageSize={size}
                 totalPages={meta?.total}
                 showSizeChanger={true}
