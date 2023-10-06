@@ -12,20 +12,6 @@ export const genderOptions = [
         value:"others"
     },
 ]
-export const departmentOptions = [
-    {
-        label: "HR",
-        value:"hr manager"
-    },
-    {
-        label: "Finance",
-        value:"finance"
-    },
-    {
-        label: "Management",
-        value:"management"
-    },
-]
 
 export const bloodGroupOptions = [
 	{
@@ -62,37 +48,40 @@ export const bloodGroupOptions = [
 	},
 ];
 
-export const facultyOptions = [
+
+export const semesterOptions = [
 	{
-		label: 'Engineering',
-		value: 'engineering',
+	  label: "Autumn",
+	  value: "Autumn",
 	},
 	{
-		label: 'Faculty of science and engineering',
-		value: 'Faculty of science and engineering',
-	},
-]
-export const academicDepartmentOptions = [
-	{
-		label: 'CSE',
-		value: 'cse',
+	  label: "Summer",
+	  value: "Summer",
 	},
 	{
-		label: 'Software Engineering',
-		value: 'software engineering',
+	  label: "Fall",
+	  value: "Fall",
 	},
-]
-export const academicSemesterOptions = [
-	{
-		label: 'Fall 2023',
-		value: 'fall23',
-	},
-	{
-		label: 'Autumn 2023',
-		value: 'autumn2023',
-	},
-	{
-		label: 'Summer 2023',
-		value: 'summer23',
-	},
-]
+];
+  
+export const months = [
+	"January",
+	"February",
+	"March",
+	"April",
+	"May",
+	"June",
+	"July",
+	"August",
+	"September",
+	"October",
+	"November",
+	"December",
+];
+  
+  export const monthOptions = months.map((month: string) => {
+	return {
+	  label: month,
+	  value: month,
+	};
+  });
