@@ -15,8 +15,9 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { Col, Row, message } from "antd";
 
 const CreateAdmin = () => {
-    const { data, isLoading } = useDepartmentsQuery({ limit: 100, page: 1 });
+    const { data } = useDepartmentsQuery({ limit: 100, page: 1 });
     const [addAdminWithFormData] = useAddAdminWithFormDataMutation();
+    
     //@ts-ignore
     const departments: IDepartment[] = data?.departments;
   
