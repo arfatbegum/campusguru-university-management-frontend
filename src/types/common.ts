@@ -132,9 +132,18 @@ export interface Guardian {
   motherContactNo: string;
   address: string;
 }
+
 export interface LocalGuardian {
   name: string;
   occupation: string;
   contactNo: string;
   address: string;
+}
+
+export interface IBuilding {
+  id: string;
+  title: string;
+  createdAt: string;
+  updatedAt: string;
+  deletedAt?: null;
 }

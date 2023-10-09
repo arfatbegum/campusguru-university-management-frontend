@@ -6,7 +6,8 @@ export enum tagTypes {
   academicFaculty = "academicFaculty",
   academicDepartment = "academicDepartment",
   academicSemester = "academicSemester",
-  student="student"
+  student = "student",
+  building="building"
 }
 
 export const tagTypesList = [
@@ -17,5 +18,6 @@ export const tagTypesList = [
   tagTypes.academicFaculty,
   tagTypes.academicDepartment,
   tagTypes.academicSemester,
-  tagTypes.student
+  tagTypes.student,
+  tagTypes.building
 ];
