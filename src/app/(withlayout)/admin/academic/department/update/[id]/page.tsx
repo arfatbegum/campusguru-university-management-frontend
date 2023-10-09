@@ -6,7 +6,7 @@ import FormInput from "@/components/Forms/FormInput";
 import { Col, Row, message } from "antd";
 import { IDProps } from '@/types';
 import AcademicFacultyField from '@/components/Forms/AcademicFacultyField';
-import { useAcademicDepartmentQuery,  useUpdateAcademicDepartmentMutation } from '@/redux/api/academic/departmentApi';
+import { useAcademicDepartmentQuery, useUpdateAcademicDepartmentMutation } from '@/redux/api/academic/departmentApi';
 
 const UpdateAcademicDepartment = ({ params }: IDProps) => {
     const { id } = params;
@@ -14,10 +14,10 @@ const UpdateAcademicDepartment = ({ params }: IDProps) => {
     const { data } = useAcademicDepartmentQuery(id);
     const [updateAcademicDepartment] = useUpdateAcademicDepartmentMutation();
 
-    const onSubmit = async (values: { title: string }) => {
+    const onSubmit = async (values: any) => {
         message.loading("Updating.....");
         try {
-            await updateAcademicDepartment({ id, body: values });
+            await updateAcademicDepartment({ id, body: { ...values } });
             message.success("Academic Department updated successfully");
         } catch (err: any) {
             message.error(err.message);

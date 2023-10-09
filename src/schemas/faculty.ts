@@ -5,11 +5,10 @@ export const facultySchema = yup.object().shape({
   faculty: yup.object().shape({
     name: yup.object().shape({
       firstName: yup.string().required("First name is required"),
-      middleName: yup.string().required("Middle name is required"),
       lastName: yup.string().required("Last name is required"),
     }),
     email: yup.string().email().required("Email is required"),
-    dateOfBirth: yup.string().required("Date of Birth is required"),
+    designation: yup.string().required("Designation is required"),
     contactNo: yup.string().required("Contact No is required"),
     emergencyContactNo: yup
       .string()
@@ -19,4 +18,8 @@ export const facultySchema = yup.object().shape({
       .string()
       .required("Academic Department is required"),
   }),
+  presentAddress: yup.string().required("Present Address of Birth is required"),
+  permanentAddress: yup
+    .string()
+    .required("Permanent Address of Birth is required"),
 });
