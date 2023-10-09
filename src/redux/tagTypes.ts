@@ -9,6 +9,7 @@ export enum tagTypes {
   student = "student",
   building = "building",
   room = "room",
+  course = "course",
 }
 
 export const tagTypesList = [
@@ -22,4 +23,5 @@ export const tagTypesList = [
   tagTypes.student,
   tagTypes.building,
   tagTypes.room,
+  tagTypes.course,
 ];
