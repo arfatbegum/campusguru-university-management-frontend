@@ -1,9 +1,20 @@
+import { Row } from "antd";
+import Image from "next/image";
+import notFoundImage from "@/assets/not-found.png"
 const NotFoundPage = () => {
-    return (
-      <div>
-        <h1>404!!! Page not found!</h1>
-      </div>
-    );
-  };
-  
-  export default NotFoundPage;
+  return (
+    <div>
+     <Row
+      justify="center"
+      align="middle"
+      style={{
+        height: "100vh",
+      }}
+    >
+      <Image src={notFoundImage} width={500} height={500} alt="Not Found Image"/>
+    </Row>
+    </div>
+  );
+};
+
+export default NotFoundPage;
