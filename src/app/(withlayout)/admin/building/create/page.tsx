@@ -4,7 +4,7 @@ import UMBreadCrumb from '@/components/Ui/UMBreadCrumb';
 import Form from "@/components/Forms/Form";
 import FormInput from "@/components/Forms/FormInput";
 import { Col, Row, message } from "antd";
-import { buildingSchema } from '@/schemas/buildingSchema';
+import { buildingSchema } from '@/schemas/building';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useAddBuildingMutation } from '@/redux/api/buildingApi';
 

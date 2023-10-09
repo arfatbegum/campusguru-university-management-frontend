@@ -147,3 +147,14 @@ export interface IBuilding {
   updatedAt: string;
   deletedAt?: null;
 }
+
+export interface IRoom {
+  id: string;
+  roomNumber: string;
+  floor: string;
+  createdAt: string;
+  updatedAt: string;
+  deletedAt?: null;
+  buildingId: string;
+  building: IBuilding;
+}
