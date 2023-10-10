@@ -13,7 +13,7 @@ const UpdateSemesterRegistration = ({ params }: IDProps) => {
     const { id } = params;
 
     const { data } = useSemesterRegistrationQuery(id);
-    console.log(data)
+
     const [updateSemesterRegistrations] = useUpdateSemesterRegistrationsMutation();
     const onSubmit = async (values: any) => {
        const minCredit = parseInt(values?.minCredit);
