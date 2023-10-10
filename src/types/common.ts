@@ -170,3 +170,31 @@ export interface ICourse {
   prerequisites?: null[] | null;
   prerequisiteFor?: null[] | null;
 }
+
+export interface IAcademicCoreSemester {
+  id: string;
+  syncId?: null;
+  title: string;
+  code: string;
+  year: number;
+  isCurrent?: boolean;
+  startMonth: string;
+  endMonth: string;
+  createdAt: string;
+  updatedAt: string;
+  deletedAt?: null;
+}
+
+export interface ISemesterRegistration {
+  id: string;
+  startDate: string;
+  endDate: string;
+  status: string;
+  maxCredit: number;
+  minCredit: number;
+  createdAt: string;
+  updatedAt: string;
+  deletedAt?: null;
+  academicSemesterId: string;
+  academicSemester?: IAcademicCoreSemester;
+}
