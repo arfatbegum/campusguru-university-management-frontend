@@ -12,6 +12,8 @@ const ErrorPage = () => {
      align="middle"
      style={{
        height: "100vh",
+       backgroundColor: "white",
+       color:"black"
      }}
    >
      <Image src={errorImage} width={500} height={500} alt="Error Image"/>

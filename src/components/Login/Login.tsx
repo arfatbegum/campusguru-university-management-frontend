@@ -37,6 +37,8 @@ const Login = () => {
       align="middle"
       style={{
         minHeight: "100vh",
+        backgroundColor: "white",
+        color:"black"
       }}
     >
       <Col sm={12} md={16} lg={10}>
