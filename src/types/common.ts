@@ -198,3 +198,26 @@ export interface ISemesterRegistration {
   academicSemesterId: string;
   academicSemester?: IAcademicCoreSemester;
 }
+
+export interface IAcademicCoreDepartment {
+  id: string;
+  syncId?: null;
+  title: string;
+  createdAt: string;
+  updatedAt: string;
+  deletedAt?: null;
+  academicFacultyId: string;
+}
+
+export interface IOfferedCourse {
+  id: string;
+  createdAt: string;
+  updatedAt: string;
+  deletedAt?: null;
+  courseId: string;
+  semesterRegistrationId: string;
+  academicDepartmentId: string;
+  semesterRegistration: ISemesterRegistration;
+  course: ICourse;
+  academicDepartment: IAcademicCoreDepartment;
+}
